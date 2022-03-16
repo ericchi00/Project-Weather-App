@@ -4,5 +4,4 @@ Creating a simple weather app to practice using APIs, promises and async/await f
 ## Technologies
 Written using HTML, CSS & Javascript
 
-Used ESLint and Prettier to make code look nicer
-
+Packages used: ESLint, Prettier, Style-Loader, Webpack
