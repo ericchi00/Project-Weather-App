@@ -9,8 +9,19 @@
 </head>
 
 <body>
+    <form action="" id="form">
+        <input type="text" name="search" id="search" placeholder="Location">
+        <button type="submit">Search</button>
+    </form>
+    <div id="currentLocation"></div>
     <div class="wrapper">
         <div class="current">
+            <div class="location">
+                <ul>
+                    <li id="currentDate"></li>
+                    <li id="currentWeather"></li>
+                </ul>
+            </div>
             <div class="iconWrapper">
                 <img src="" alt="">
                 <div id="temp"></div>
@@ -20,17 +31,6 @@
                 <li id="precipitation"></li>
                 <li id="humidity"></li>
                 <li id="wind"></li>
-            </ul>
-            <form action="" id="form">
-                <input type="text" name="search" id="search" placeholder="Search Location">
-                <button type="submit">Search</button>
-            </form>
-        </div>
-        <div class="location">
-            <ul>
-                <li id="currentLocation"></li>
-                <li id="currentDate"></li>
-                <li id="currentWeather"></li>
             </ul>
         </div>
     </div>
