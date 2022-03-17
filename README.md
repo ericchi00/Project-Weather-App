@@ -4,4 +4,10 @@ Creating a simple weather app to practice using APIs, promises and async/await f
 ## Technologies
 Written using HTML, CSS & Javascript
 
-Packages used: ESLint, Prettier, Style-Loader, Webpack
+Packages used: ESLint, Prettier, Style-Loader, Webpack, Date FNS + Date FNS TZ
+
+## API
+Using [OpenWeather API](https://openweathermap.org/api) to grab weather data.
+
+## Sources
+Icons are from [Material Design Icons](https://materialdesignicons.com/)
