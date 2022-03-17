@@ -1,6 +1,8 @@
 // gets Lat & Lon and then puts it into API call for weather data
 async function returnWeatherData(location) {
+      const search = document.querySelector("#search");
   try {
+    search.placeholder = 'Location';
     const apiCall = await fetch(
       `http://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=1&appid=98658d9bf9aba83345eb8033cc9dbe20`,
       {
@@ -19,7 +21,7 @@ async function returnWeatherData(location) {
     const json = await weather.json();
       return json;
   } catch (error) {
-    console.log("that place doesn't exist", error);
+    search.placeholder = 'Place does not exist';
   }
     return null;
 }

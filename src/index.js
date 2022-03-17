@@ -1,6 +1,10 @@
 import "./style.css";
 import returnWeatherData from "./api";
-import { setCurrentLocation, setCurrentTemperature } from "./dom";
+import {
+  setCurrentLocation,
+  setCurrentTemperature,
+  weatherOfTheWeek,
+} from "./dom";
 
 // lets user search location for weather
 const form = document.querySelector("#form");
@@ -21,13 +25,17 @@ form.addEventListener("submit", (e) => {
       response.current.humidity,
       response.current.wind_speed
     );
+    weatherOfTheWeek(response.daily, response.timezone);
   });
+  form.reset();
 });
 
-function defaultPage() {
-  returnWeatherData("Seoul").then((response) => {
+
+// default loading page when page is opened for the first time
+function defaultPage(location) {
+  returnWeatherData(location).then((response) => {
     setCurrentLocation(
-      "Seuol",
+      location,
       response.timezone,
       response.current.weather[0].description
     );
@@ -38,6 +46,8 @@ function defaultPage() {
       response.current.humidity,
       response.current.wind_speed
     );
+    weatherOfTheWeek(response.daily, response.timezone);
   });
 }
-// defaultPage();
+
+defaultPage("Tokyo");

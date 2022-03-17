@@ -34,6 +34,7 @@ function setCurrentLocation(location, timezone, description) {
   currentWeather.textContent = description;
 }
 
+// sets current temperature, precipitation, humidity, windspeed and icon
 function setCurrentTemperature(
   id,
   temperature,
@@ -48,9 +49,60 @@ function setCurrentTemperature(
   const wind = document.querySelector("#wind");
   icon.src = images[`${id}.png`];
   temp.textContent = Math.round(temperature);
-    rain.textContent = `${precipitation  }%`;
-    humid.textContent = `${humidity  }%`;
-  wind.textContent = `${windSpeed} mph`;
+  rain.textContent = `Precipitation is at ${precipitation * 100}%`;
+  humid.textContent = `Humidity is at ${humidity}%`;
+  wind.textContent = `Wind Speed is ${windSpeed} mph`;
 }
 
-export { setCurrentLocation, firstLetterUppercase, setCurrentTemperature };
+
+// creates the days of the week cards 
+function weatherOfTheWeek(weekArray, timeZone) {
+  const container = document.querySelector(".seven");
+  // removes everything in the container
+  while (container.firstChild) {
+    container.removeChild(container.lastChild);
+  }
+  const zero = document.createElement("div");
+  const one = document.createElement("div");
+  const two = document.createElement("div");
+  const three = document.createElement("div");
+  const four = document.createElement("div");
+  const five = document.createElement("div");
+  const six = document.createElement("div");
+  const seven = document.createElement("div");
+
+  const days = [zero, one, two, three, four, five, six, seven];
+
+  days.forEach((day, index) => {
+    const date = new Date();
+    date.setDate(date.getDate() + index); // adds index amount of days to the current day
+    container.appendChild(day);
+    day.classList.add(`i${index}`);
+    const dayTitle = document.createElement("p");
+    dayTitle.classList.add("dayTitle");
+    dayTitle.textContent = formatInTimeZone(date, timeZone, "eee");
+    const icon = document.createElement("img");
+    icon.classList.add("dayOfTheWeekIcon");
+    icon.src = images[`${weekArray[index].weather[0].icon}.png`];
+    const tempWrapper = document.createElement("div");
+    tempWrapper.classList.add("tempWrapper");
+    const maxTemp = document.createElement("p");
+    maxTemp.classList.add("maxTemp");
+    maxTemp.textContent = `${Math.round(weekArray[index].temp.max)}°`;
+    const lowTemp = document.createElement("p");
+    lowTemp.classList.add("lowTemp");
+    lowTemp.textContent = `${Math.round(weekArray[index].temp.min)}°`;
+    tempWrapper.appendChild(maxTemp);
+    tempWrapper.appendChild(lowTemp);
+    day.appendChild(dayTitle);
+    day.appendChild(icon);
+    day.appendChild(tempWrapper);
+  });
+}
+
+export {
+  setCurrentLocation,
+  firstLetterUppercase,
+  setCurrentTemperature,
+  weatherOfTheWeek,
+};
