@@ -4,7 +4,7 @@ async function returnWeatherData(location) {
   try {
     search.placeholder = 'Location';
     const apiCall = await fetch(
-      `http://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=1&appid=98658d9bf9aba83345eb8033cc9dbe20`,
+      `https://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=1&appid=98658d9bf9aba83345eb8033cc9dbe20`,
       {
         mode: "cors",
       }
