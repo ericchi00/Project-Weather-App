@@ -10,4 +10,4 @@ Packages used: ESLint, Prettier, Style-Loader, Webpack, Date FNS + Date FNS TZ
 Using [OpenWeather API](https://openweathermap.org/api) to grab weather data.
 
 ## Sources
-Icons are from [Material Design Icons](https://materialdesignicons.com/)
+Icons are from OpenWeather and are free to use as stated in their FAQ
