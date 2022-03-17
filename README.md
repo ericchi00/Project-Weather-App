@@ -11,3 +11,5 @@ Using [OpenWeather API](https://openweathermap.org/api) to grab weather data.
 
 ## Sources
 Icons are from OpenWeather and are free to use as stated in their FAQ
+
+[Live Demo](https://ericchi00.github.io/Project-Weather-App/)
